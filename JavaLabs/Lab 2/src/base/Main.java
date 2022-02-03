@@ -16,11 +16,11 @@ public class Main {
         int x = 10;
         int y = 20;
         // Make an if statement that triggers a print or println statement
-        if(x == 10){
+        if(true){
             System.out.println("Hello World!");
         }
         // Make an if, else statement where the else statement triggers a print or println statement
-        if(y == 20){
+        if(true){
             System.out.println("Welcome to the internet.");
         }
         else{
