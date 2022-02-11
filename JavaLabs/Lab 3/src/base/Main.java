@@ -20,11 +20,11 @@ public class Main {
             System.out.println("Hello World!");
         }
         // Make an if, else statement where the else statement triggers a print or println statement
-        if(true){
+        if(x > 15){
             System.out.println("Welcome to the internet.");
         }
         else{
-            System.out.println("Sorry, it seems the computer isnt working.");
+            System.out.println("Sorry, it seems that x isnt greater than 15.");
         }
         // Make an if, else if, else statement where the else if statement triggers a print or println statement
         if(x < 10){
