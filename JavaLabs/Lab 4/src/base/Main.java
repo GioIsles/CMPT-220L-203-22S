@@ -15,10 +15,10 @@ public class Main {
      * - Combining functions
      * - Structuring solutions
      */
+    int num1 = 2;
+    int num2 = 3;
+    int[] nums = {1,2,3};
     public static void main(String[] args) {
-        int num1 = 2;
-        int num2 = 3;
-        int[] nums = {1,2,3};
 
         // Give me an example of you using switch case.
         switch(num1){
@@ -49,7 +49,8 @@ public class Main {
      * and should print out or return 8. Print the output.
      */
     int power(int num1, int num2){
-        return num1 ^ num2;
+        int pow = Math.pow(num1, num2);
+        return pow;
     }
     /**
      * I want you to write a function that will take in a list and see how many times a given number is in the list.
