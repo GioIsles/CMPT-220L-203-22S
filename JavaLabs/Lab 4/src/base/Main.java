@@ -1,5 +1,5 @@
 package base;
-import java.util.Scanner;
+
 
 public class Main {
     /**
@@ -17,7 +17,8 @@ public class Main {
      */
     static int num1 = 2;
     static int num2 = 7;
-    static int[] nums = {1,2,3,2,3,4,9,1,2};
+    static int num3 = 3;
+    static int[] nums = {3,2,3,2,3,4,9,1,3};
     public static void main(String[] args) {
 
         // Give me an example of you using switch case.
@@ -46,14 +47,14 @@ public class Main {
         int ans1 = power(5, 2);
         System.out.println("5^2 = " + ans1);
         //function 2
-        int ans2 = findList(num1, nums);
+        int ans2 = findList(num3, nums);
         System.out.println("Num1 shows up in the array " + ans2 + " times.");
         //function 3
         int ans3 = summation(nums);
         System.out.println("The sum of the list is " + ans3 + ".");
         //function 4
         int ans4 = pythagorean(num1, num2);
-        System.out.println("2^2 + 7^2 = " + ans4);
+        System.out.println("2^2 + 7^2 = " + ans4 + "^2 / c=" + ans4);
         }
     }
     // For the following todos you'll probably want to define them below and then call them from the main function above.
@@ -63,8 +64,7 @@ public class Main {
      * and should print out or return 8. Print the output.
      */
     public static int power(int num1, int num2){
-        int pow = (int) Math.pow(num1, num2);
-        return pow;
+        return (int) Math.pow(num1, num2);
     }
     /**
      * I want you to write a function that will take in a list and see how many times a given number is in the list.
@@ -73,11 +73,11 @@ public class Main {
      */
     public static int findList(int num1, int [] nums){
         int numinlist = 0;       
-        for (int i = 0; i < nums.length; i++) 
+        for (int number:nums) 
            {
-               if (num1 == nums[i]) 
+               if (number == num1) 
                {              
-                  numinlist = numinlist + 1;
+                  numinlist++;
                }
            }
         return numinlist;
@@ -116,12 +116,10 @@ public class Main {
     }
 
     int addition(int a, int b) {
-        int answer = a + b;
-        return answer;
+        return a + b;
     }
 
     int division(int a, int b) {
-        int answer = a / b;
-        return answer;
+        return a / b;
     }
 }
