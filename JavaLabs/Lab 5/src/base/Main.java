@@ -1,5 +1,7 @@
 package base;
 
+import java.util.Scanner;
+
 public class Main {
     /**
      * In our Assignment here we're running a little lemonade stand and we also sell pretzels. We need to keep track of
@@ -29,11 +31,34 @@ public class Main {
 
     public static void main(String[] args) {
         //	Replace this with your dry inventory function!
-        wet_inventory();
+        dry_inventory();
     }
 
     static void dry_inventory() {
         // Your DRY Solution goes here!
+        Scanner pretzels_num = new Scanner(System.in);
+        System.out.print("Enter total pretzels sold: ");
+        int pretzels = pretzels_num.nextInt();
+
+        Scanner lemonades_num = new Scanner(System.in);
+        System.out.print("Enter total lemonades sold: ");
+        int lemonades = lemonades_num.nextInt();
+
+        Scanner tip_amount = new Scanner(System.in);
+        System.out.print("Enter total tip amount: ");
+        int tip = tip_amount.nextInt();
+
+        cash = (pretzels * 2) + (lemonades * 8) + cash;
+        lemonades_available -= lemonades;
+        pretzels_available -= pretzels;
+        tips = tip;
+
+        System.out.println(" ");
+        System.out.println("Results for the hour!");
+        System.out.println("Lemonades Inventory: " + lemonades_available);
+        System.out.println("Pretzels Inventory: " + pretzels_available);
+        System.out.println("Cash: " + cash);
+        System.out.println("Tips: " + tips);
     }
 
     static void wet_inventory() {
