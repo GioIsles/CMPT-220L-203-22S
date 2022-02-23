@@ -36,29 +36,31 @@ public class Main {
 
     static void dry_inventory() {
         // Your DRY Solution goes here!
-        Scanner pretzels_num = new Scanner(System.in);
-        System.out.print("Enter total pretzels sold: ");
-        int pretzels = pretzels_num.nextInt();
+        int [] pretzels = {4,2,3,1,2,10,6,1,2,6,9};
+        int [] lemonades = {1,3,2,6,4,8,1,7,3,2};
+        int [] tips_list = {4,10,5,10,4,3};
 
-        Scanner lemonades_num = new Scanner(System.in);
-        System.out.print("Enter total lemonades sold: ");
-        int lemonades = lemonades_num.nextInt();
+        int pretzels_total = 0;
+        for(int x : pretzels){
+            pretzels_total += x;
+        }
 
-        Scanner tip_amount = new Scanner(System.in);
-        System.out.print("Enter total tip amount: ");
-        int tip = tip_amount.nextInt();
+        int lemonade_total = 0;
+        for(int y : lemonades){
+            lemonade_total += y;
+        }
 
-        cash = (pretzels * 2) + (lemonades * 8) + cash;
-        lemonades_available -= lemonades;
-        pretzels_available -= pretzels;
-        tips = tip;
+        int tips_total = 0;
+        for(int z : tips_list){
+            tips_total += z;
+        }
 
         System.out.println(" ");
         System.out.println("Results for the hour!");
-        System.out.println("Lemonades Inventory: " + lemonades_available);
-        System.out.println("Pretzels Inventory: " + pretzels_available);
-        System.out.println("Cash: " + cash);
-        System.out.println("Tips: " + tips);
+        System.out.println("Lemonades Inventory: " + (lemonades_available - lemonade_total));
+        System.out.println("Pretzels Inventory: " + (pretzels_available - pretzels_total));
+        System.out.println("Cash: " + (cash + (lemonade_total * 8) + (pretzels_total * 2)));
+        System.out.println("Tips: " + (tips + tips_total));
     }
 
     static void wet_inventory() {
