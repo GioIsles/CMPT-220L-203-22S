@@ -1,9 +1,21 @@
 package base;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
 public class Main {
+    boolean needsWatering;
+    String plantFamily;
+    String name;
+
+    void wateringInstructions(){
+        System.out.println("Use 12oz of water.");
+    }
+
+    void sunlightRequirements(){
+        System.out.println("Get 8 hours of sun.");
+    }
     /**
      * # Lab Six
      * ---
@@ -50,12 +62,17 @@ public class Main {
         arrQueue.add(8);
         System.out.println(arrQueue);
         // Create an Stack, Populate it, and Print it out
-        Stack<String> arrStack = new Stack<String>();
-        arrStack.push("One");
-        arrStack.push("Two");
-        arrStack.push("Three");
-        System.out.println(arrStack);
+        Stack<String> arrs = new Stack<String>();
+        arrs.push("One");
+        arrs.push("Two");
+        arrs.push("Three");
+        System.out.println(arrs);
         // Using the information in the Lab 6 Jupyter Notebook create an instance of plant here.
-        
+        Main plant = new Main();
+        plant.needsWatering = true;
+        plant.plantFamily = "Asphodelaceae";
+        plant.name = "Aloe Vera";
+        plant.wateringInstructions();
+        plant.sunlightRequirements();
     }
 }
