@@ -8,6 +8,14 @@ public class Plant {
 
 
     public Plant(boolean needsWatering, String plantFamily, String name, int var1, int var2) {
+    this.needsWatering = needsWatering;
+    this.plantFamily = plantFamily;
+    this.name = name;
+    this.var1 = var1;
+    this.var2 = var2;
+    wateringInstructions();
+    sunlightRequirements();
+    PlantPrint();
     }
 
     void wateringInstructions(){

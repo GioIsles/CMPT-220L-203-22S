@@ -65,34 +65,8 @@ public class Main {
         System.out.println(arrs);
         System.out.println();
         // Using the information in the Lab 6 Jupyter Notebook create an instance of plant here.
-        Plant plant1 = new Plant(needsWatering, plantFamily, name, var1, var2);
-        plant1.needsWatering = true;
-        plant1.plantFamily = "Asphodelaceae";
-        plant1.name = "Aloe Vera";
-        plant1.var1 = 12;
-        plant1.var2 = 8;
-        plant1.wateringInstructions();
-        plant1.sunlightRequirements();
-        plant1.PlantPrint();
+        Plant plant1 = new Plant(true, "Asphodelaceae", "Aloe Vera", 12, 8);
         System.out.println();
-        Plant plant2 = new Plant(needsWatering, plantFamily, name, var1, var2);
-        plant2.needsWatering = false;
-        plant2.plantFamily = "Cacti";
-        plant2.name = "Silver Torch Cactus";
-        plant2.var2 = 17;
-        plant2.sunlightRequirements();
-        plant2.PlantPrint();
-    }
-
-    public static boolean needsWatering;
-    public static String plantFamily;
-    public static String name;
-    public static int var1;
-    public static int var2;
-
-    public void wateringInstructions() {
-    }
-
-    public void sunlightRequirements() {
+        Plant plant2 = new Plant(true, "Araceae", "Taro", 9, 8);
     }
 }
