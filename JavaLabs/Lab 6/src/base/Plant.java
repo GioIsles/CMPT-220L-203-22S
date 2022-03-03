@@ -3,8 +3,8 @@ public class Plant {
     boolean needsWatering;
     String plantFamily;
     String name;
-    public int var1;
-    public int var2;
+    int var1;
+    int var2;
 
 
     public Plant(boolean needsWatering, String plantFamily, String name, int var1, int var2) {
