@@ -7,7 +7,7 @@ public class Plant {
     public int var2;
 
 
-    public Plant(boolean needsWatering2, String plantFamily2, String name2, int var1, int var2) {
+    public Plant(boolean needsWatering, String plantFamily, String name, int var1, int var2) {
     }
 
     void wateringInstructions(){
