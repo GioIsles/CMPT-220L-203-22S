@@ -5,17 +5,6 @@ import java.util.Queue;
 import java.util.Stack;
 
 public class Main {
-    boolean needsWatering;
-    String plantFamily;
-    String name;
-
-    void wateringInstructions(){
-        System.out.println("Use 12oz of water.");
-    }
-
-    void sunlightRequirements(){
-        System.out.println("Get 8 hours of sun.");
-    }
     /**
      * # Lab Six
      * ---
@@ -39,7 +28,7 @@ public class Main {
     public static void main(String[] args) {
         // Create an Array, Populate it, and Print it out
         int[] arr = {1,2,3,4};
-        System.out.println(arr);
+        System.out.println(arr[1]);
         // Create an ArrayList, Populate it, and Print it out
         ArrayList<Integer> arrList = new ArrayList<Integer>();
         arrList.add(1);
@@ -68,11 +57,22 @@ public class Main {
         arrs.push("Three");
         System.out.println(arrs);
         // Using the information in the Lab 6 Jupyter Notebook create an instance of plant here.
-        Main plant = new Main();
-        plant.needsWatering = true;
-        plant.plantFamily = "Asphodelaceae";
-        plant.name = "Aloe Vera";
-        plant.wateringInstructions();
-        plant.sunlightRequirements();
+        Plant plant1 = new Plant(needsWatering, plantFamily, name);
+        plant1.needsWatering = true;
+        plant1.plantFamily = "Asphodelaceae";
+        plant1.name = "Aloe Vera";
+        plant1.wateringInstructions();
+        plant1.sunlightRequirements();
+        plant1.PlantPrint();
+    }
+
+    public static boolean needsWatering;
+    public static String plantFamily;
+    public static String name;
+
+    public void wateringInstructions() {
+    }
+
+    public void sunlightRequirements() {
     }
 }
