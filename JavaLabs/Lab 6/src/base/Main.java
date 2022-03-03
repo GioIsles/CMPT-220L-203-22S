@@ -50,6 +50,7 @@ public class Main {
         System.out.println(arrLink);
         System.out.println();
         // Create an Queue, Populate it, and Print it out
+        System.out.println("Queue:");
         Queue<Integer> arrQueue = new LinkedList<Integer>();
         arrQueue.add(2);
         arrQueue.add(4);
@@ -58,6 +59,7 @@ public class Main {
         System.out.println(arrQueue);
         System.out.println();
         // Create an Stack, Populate it, and Print it out
+        System.out.println("Stack:");
         Stack<String> arrs = new Stack<String>();
         arrs.push("One");
         arrs.push("Two");
