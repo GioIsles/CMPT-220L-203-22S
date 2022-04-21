@@ -13,5 +13,6 @@ public class Main {
         second.nextNode = third;
         third.nextNode = fourth;
         fourth.nextNode = fifth;
+        System.out.println(fifth);
     }
 }
