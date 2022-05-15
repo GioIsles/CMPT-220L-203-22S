@@ -1,13 +1,19 @@
 package Project;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
+//creates a node class
 class Node {
     int data;
     Node left;
     Node right;
 }
 
+//creates a binary search tree class
 class BST {
 
+    //createNewNode function makes a new node
     public Node createNewNode(int k) {
         Node a = new Node();
         a.data = k;
@@ -16,6 +22,7 @@ class BST {
         return a;
     }
 
+    //insert function inserts a int into the tree to make a node
     public Node insert(Node node, int x){
         if(node == null){
             return createNewNode(x);
@@ -30,6 +37,7 @@ class BST {
         return node;
     }
 
+    //findNode function finds a node in the tree to see if the int is in the tree
     public boolean findNode(Node node, int x){
         if (node == null){
             return false;
@@ -52,6 +60,7 @@ class BST {
         return nodeFound;
     }
 
+    //returns the height of the tree
     public int height(Node node){
         if(node == null){
             return 0;
@@ -59,7 +68,8 @@ class BST {
         return Math.max(height(node.left), height(node.right)) + 1;
     }
 
-    public int minVal(Node node){
+    //returns the minimum value of the tree
+    public int minval(Node node){
         if(node == null){
             System.out.println("N/A");
             return 0;
@@ -70,7 +80,8 @@ class BST {
         return node.data;
     }
 
-    public int maxVal(Node node){
+    //returns the maximum value of the tree
+    public int maxval(Node node){
         if(node == null){
             System.out.println("N/A");
             return 0;
@@ -81,25 +92,28 @@ class BST {
         return node.data;
     }
     
+    //returns the nth largest value in the tree
     static int x = 0;
-    public Node NthLargest(Node node, int n){
+    public Node nthlargest(Node node, int n){
         if(node == null){
             return null;
         }
 
-        Node right = NthLargest(node.right, n);
+        Node right = nthlargest(node.right, n);
 
         if(right != null){
             return right;
         }
+
         x++;
 
         if(x == n){
             return node;
         }
-        return NthLargest(node.left, n);
+        return nthlargest(node.left, n);
     }
 
+    //puts the tree in order
     public void inorder(Node node){
         if(node == null){
             return;
@@ -109,73 +123,115 @@ class BST {
         inorder(node.right);
     }
 
+    //puts the tree in post order
     public void postorder(Node node){
         if(node == null){
             return;
         }
-
         postorder(node.left);
         postorder(node.right);
         System.out.print(node.data + " ");
     }
 
+    //puts the tree in pre order
     public void preorder(Node node){
         if (node == null){
             return;
         }
-
         System.out.print(node.data + " ");
         preorder(node.left);
         preorder(node.right);
     }
 
-    public Node delete(Node node, int x) {
-        if(node == null) {
-          return node;
+    //does a depth first search
+    public boolean depthFirstSearch(Node node, int val){
+        boolean found = false;
+
+        if(node == null){
+            return found;
         }
-        
-        if(x < node.data) {
-          node.left = delete(node.left, x);
-        } 
-        else if(x > node.data) {
-          node.right = delete(node.right, x);
-        } 
-        else {
-          if(node.left == null || node.right == null) {
-            Node temp = node.left != null ? node.left : node.right;
-    
-            if(temp == null) {
-              return null;
-            } 
-            else {
-              return temp;
-            }
-          } 
-          else {
-            Node successor = get(node);
-            node.data = successor.data;
-            
-            node.right = delete(node.right, successor.data);
-            return node;
-          }
+
+        if (node.data == val){
+            found = true;
         }
-        return node;
+
+        depthFirstSearch(node.left, val);
+        depthFirstSearch(node.right, val);
+        return found;
+      }
+
+      //does a breadth first search
+      public boolean breadthFirstSearch(Node node, int val){
+        boolean found = false;
+
+        Queue<Node> queue = new LinkedList<Node>();
+        queue.add(node);
+
+        if(node == null){
+            return found;
+        }
+
+        if (node.data == val){
+            found = true;
+        }
+
+        breadthFirstSearch(node.left, val);
+        breadthFirstSearch(node.right, val);
+        return found;
       }
       
-      public Node get(Node node) {
-        if(node == null) {
-          return null;
+      //deletes a node
+      public static Node deleteNode(Node node, int val) {
+
+        if (node == null) {
+            return node;
         }
-        
-        Node temp = node.right;
-        
-        while(temp.left != null) {
-          temp = temp.left;
+
+        else if (val < node.data) {
+            node.left = deleteNode(node.left, val);
         }
-        return temp;
-      }
+  
+        else if (val > node.data) {
+            node.right = deleteNode(node.right, val);
+        }
+  
+        else {
+            if (node.left == null && node.right == null) {
+                node = null;
+            }
+
+            else if (node.left == null) {
+                Node del = node;
+                node = node.right;
+                del = null;
+            }
+
+            else if (node.right == null) {
+                Node del = node;
+                node = node.left;
+                del = null;
+            }
+
+            else {
+
+                Node del = findMin(node.right);
+                node.data = del.data;
+                node.right = deleteNode(node.right, del.data);
+            }
+        }
+        return node;
+    }
+
+    //finds the min value
+    public static Node findMin(Node node) {
+        while (node.left != null){
+            node = node.left;
+        }
+        return node;
+    }
 }
 
+//the main creates a binary search tree, adds values, and tests all the functions shown above
 public class Main {
     public static void main(String[] args) {
         BST a = new BST();
@@ -195,29 +251,40 @@ public class Main {
         System.out.println("In Order:");
         a.inorder(root);
         System.out.println("");
+        System.out.println("");
 
         System.out.println("Post Order:");
         a.postorder(root);
+        System.out.println("");
         System.out.println("");
         
         System.out.println("Pre Order");
         a.preorder(root);
         System.out.println("");
+        System.out.println("");
 
         System.out.println("Min Value");
-        a.minVal(root);
+        System.out.println(a.minval(root));
         System.out.println("");
 
         System.out.println("Max Value");
-        a.maxVal(root);
+        System.out.println(a.maxval(root));
         System.out.println("");
 
         System.out.println("Nth Value");
-        a.NthLargest(root, 2);
+        System.out.println(a.nthlargest(root, 3).data);
+        System.out.println("");
+
+        System.out.println("Depth First Search");
+        System.out.println(a.depthFirstSearch(root, 1));
+        System.out.println("");
+
+        System.out.println("Breadth First Search");
+        System.out.println(a.breadthFirstSearch(root, 1));
         System.out.println("");
 
         System.out.println("Delete + Reorganise");
-        a.delete(root, 13);
+        a.deleteNode(root, 13);
         a.inorder(root);
         System.out.println("");
     }
